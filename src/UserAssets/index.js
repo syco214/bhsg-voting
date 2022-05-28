@@ -12,8 +12,6 @@ import {
 import useConnectWallet from '../hooks/LoadingMetaData'
 
 import mintList1 from '../MINT_LIST_1.json'
-// import mintList2 from '../MINT_LIST_2.json'
-// import mintList3 from '../MINT_LIST_3.json'
 import spaceList from '../SPCACESHIP_LIST.json'
 import spiderList from '../SPIDER_LIST.json'
 import axios from 'axios'
