@@ -13,7 +13,7 @@ import useConnectWallet from '../hooks/LoadingMetaData'
 
 import mintList1 from '../MINT_LIST_1.json'
 import spaceList from '../SPCACESHIP_LIST.json'
-import spiderList from '../SPIDER_LIST.json'
+import cacheList from '../CACHE_LIST.json'
 import axios from 'axios'
 
 import Carousel from '../Carousel2/Carousel'
@@ -75,7 +75,7 @@ const UserAssets = (props) => {
         const newMetaList = _.cloneDeep(spaceShip)
         newMetaList.push(metaData.data)
         setSpaceShip(newMetaList)
-      } else if (spiderList.indexOf(metaData.data.Mint) !== -1) {
+      } else if (cacheList.indexOf(metaData.data.Mint) !== -1) {
         const newMetaList = _.cloneDeep(spider)
         newMetaList.push(metaData.data)
         setSpider(newMetaList)
