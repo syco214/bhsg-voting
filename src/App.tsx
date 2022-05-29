@@ -1,6 +1,7 @@
 import "./App.css";
 import { useMemo, useState } from "react";
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
+// import * as anchor from "@project-serum/anchor";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
@@ -18,12 +19,31 @@ import {
 
 import { WalletDialogProvider } from "@solana/wallet-adapter-material-ui";
 import { createTheme, ThemeProvider } from "@material-ui/core";
+import Navbar from "./Navbar";
 import Appbar from "./Appbar";
-import Sidebar from "./Sidebar";
 import ConnectWallet from "./ConnectWallet";
 import UserAssets from "./UserAssets"
 
+// const treasury = new anchor.web3.PublicKey(
+//   process.env.REACT_APP_TREASURY_ADDRESS!
+// );
+
+// const config = new anchor.web3.PublicKey(
+//   process.env.REACT_APP_CANDY_MACHINE_CONFIG!
+// );
+
+// const candyMachineId = new anchor.web3.PublicKey(
+//   process.env.REACT_APP_CANDY_MACHINE_ID!
+// );
+
 const network = process.env.REACT_APP_SOLANA_NETWORK as WalletAdapterNetwork;
+
+// const rpcHost = process.env.REACT_APP_SOLANA_RPC_HOST!;
+// const connection = new anchor.web3.Connection(rpcHost);
+
+// const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
+
+// const txTimeout = 30000; // milliseconds (confirm this works for your project)
 
 const theme = createTheme({
     palette: {
@@ -78,11 +98,10 @@ const App = () => {
         <ConnectionProvider endpoint={endpoint}>
           <WalletProvider wallets={wallets} autoConnect={true}>
             <WalletDialogProvider>
-              <Sidebar isOpen={isOpen} toggle={toggle}/>
-              <Appbar/>  
+              <Appbar />  
                 <Switch>
                   <Route path="/" exact component={ConnectWallet} />
-                  <Route path="/spaceship/:url" render={(props) => <UserAssets {...props} />} />
+                  <Route path="/room/:url" render={(props) => <UserAssets {...props} />} />
                 </Switch>
             </WalletDialogProvider>
           </WalletProvider>
