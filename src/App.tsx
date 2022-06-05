@@ -1,7 +1,6 @@
 import "./App.css";
 import { useMemo, useState } from "react";
 import {Route, BrowserRouter as Router, Switch} from "react-router-dom";
-// import * as anchor from "@project-serum/anchor";
 import { clusterApiUrl } from "@solana/web3.js";
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
 import {
